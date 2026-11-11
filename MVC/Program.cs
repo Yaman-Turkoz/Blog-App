@@ -1,4 +1,6 @@
 using APP.Domain;
+using APP.Models;
+using APP.Services;
 using CORE.Services;
 using Microsoft.EntityFrameworkCore;
 
@@ -8,6 +10,12 @@ builder.Services.AddDbContext<DbContext, Db>(
     options => options.UseSqlite(
         builder.Configuration.GetConnectionString(nameof(Db))));
 // Add services to the container.
+
+builder.Services
+    .AddScoped<IService<BlogRequest, BlogResponse>, BlogService>();
+builder.Services
+    .AddScoped<IService<TagRequest, TagResponse>, TagService>();
+
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
