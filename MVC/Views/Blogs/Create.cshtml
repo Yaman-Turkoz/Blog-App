@@ -1,4 +1,4 @@
-@model APP.Models.BlogRequest
+@model BlogRequest
 
 @{
     var containerDivClass = "container";
@@ -26,15 +26,16 @@
         </div>
         <div class="row mb-3">
             <label asp-for="Rating" class="col-2 col-form-label fw-bold"></label>
-            <div class="col-10">
+            <div class="col-10 position-relative">
                 <input asp-for="Rating" class="form-control" />
+                <span class="position-absolute opacity-25 me-3" style="right: 12px; top: 4px;"> /10</span>
                 <span asp-validation-for="Rating" class="text-danger"></span>
             </div>
         </div>
         <div class="row mb-3">
             <label asp-for="PublishDate" class="col-2 col-form-label fw-bold"></label>
             <div class="col-10">
-                <input asp-for="PublishDate" class="form-control datetimepicker" type="text" />
+                <input type="date" asp-for="PublishDate" class="form-control datetimepicker"/>
                 <span asp-validation-for="PublishDate" class="text-danger"></span>
             </div>
         </div>
