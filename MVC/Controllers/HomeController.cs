@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
-//using MVC.Models;
 using System.Diagnostics;
-using Blog_App.Models;
+using MVC.Models;
 
 namespace MVC.Controllers
 {

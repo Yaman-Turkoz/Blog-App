@@ -1,0 +1,55 @@
+@model APP.Models.BlogResponse
+
+@{
+    var containerDivClass = "container";
+    ViewData["Title"] = "Blog Details";
+}
+<div class="@containerDivClass">
+    <h1>@ViewData["Title"]</h1>
+    <hr />
+</div>
+@if (Model is not null)
+{
+<div class="@containerDivClass">
+    @if (TempData["Message"] is not null)
+    {
+        <p class="text-danger">@TempData["Message"]</p>
+    }
+    <div class="row mb-3">
+        <div class="col-2 fw-bold">@Html.DisplayNameFor(model => model.Title)</div>
+        <div class="col-10">@Html.DisplayFor(model => model.Title)</div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-2 fw-bold">@Html.DisplayNameFor(model => model.Content)</div>
+        <div class="col-10">@Html.DisplayFor(model => model.Content)</div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-2 fw-bold">@Html.DisplayNameFor(model => model.RatingR)</div>
+        <div class="col-10">@Html.DisplayFor(model => model.RatingR)</div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-2 fw-bold">@Html.DisplayNameFor(model => model.PublishDateR)</div>
+        <div class="col-10">@Html.DisplayFor(model => model.PublishDateR)</div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-2 fw-bold">@Html.DisplayNameFor(model => model.IsArchivedR)</div>
+        <div class="col-10">@Html.DisplayFor(model => model.IsArchivedR)</div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-2 fw-bold">@Html.DisplayNameFor(model => model.UserName)</div>
+        <div class="col-10">@Html.DisplayFor(model => model.UserName)</div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-2 fw-bold">@Html.DisplayNameFor(model => model.UserId)</div>
+        <div class="col-10">@Html.DisplayFor(model => model.UserId)</div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-2 fw-bold">@Html.DisplayNameFor(model => model.TagNamesR)</div>
+        <div class="col-10">@Html.DisplayFor(model => model.TagNamesR)</div>
+    </div>
+    <hr />
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Delete" asp-route-id="@Model.Id">Delete</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
+}
